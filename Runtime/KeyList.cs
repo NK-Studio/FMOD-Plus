@@ -12,6 +12,8 @@ namespace FMODPlus
 {
     public class KeyList : ScriptableObject
     {
+        private const string PluginsDirectory = "Assets/Plugins";
+        private const string FMODPlusDirectory = "Assets/Plugins/FMODPlus";
         private const string KeyListDirectory = "Assets/Plugins/FMODPlus/Resources";
         private const string KeyListFilePath = "Assets/Plugins/FMODPlus/Resources/KeyList.asset";
 
@@ -35,10 +37,14 @@ namespace FMODPlus
 #if UNITY_EDITOR
                 if (_instance == null)
                 {
+                    if (!AssetDatabase.IsValidFolder(PluginsDirectory))
+                        AssetDatabase.CreateFolder("Assets", "Plugins");
+
+                    if (!AssetDatabase.IsValidFolder(FMODPlusDirectory))
+                        AssetDatabase.CreateFolder("Assets/Plugins", "FMODPlus");
+
                     if (!AssetDatabase.IsValidFolder(KeyListDirectory))
-                    {
                         AssetDatabase.CreateFolder("Assets/Plugins/FMODPlus", "Resources");
-                    }
 
                     _instance = AssetDatabase.LoadAssetAtPath<KeyList>(KeyListFilePath);
 
@@ -49,7 +55,6 @@ namespace FMODPlus
                     }
                 }
 #endif
-
                 return _instance;
             }
         }
