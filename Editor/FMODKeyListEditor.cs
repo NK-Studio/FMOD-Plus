@@ -254,7 +254,6 @@ namespace FMODPlus
                 EventReferenceByKey item = new();
                 item.Key = count > 0 ? $"New Key ({count})" : "New Key";
                 element.FindPropertyRelative(kKey).stringValue = item.Key;
-                element.FindPropertyRelative(kValue).FindPropertyRelative(kPath).stringValue = string.Empty;
                 element.FindPropertyRelative(kGUID).stringValue = item.GUID;
                 serializedObject.ApplyModifiedProperties();
 
