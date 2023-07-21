@@ -147,6 +147,7 @@ namespace FMODPlus
             root.Add(new IMGUIContainer(() =>
             {
                 baseFieldLayout.SetActive(false);
+                sendOnStartField.SetActive(false);
 
                 if (!parameterSender.IsGlobalParameter)
                 {
@@ -226,6 +227,7 @@ namespace FMODPlus
                         _oldPath = existEvent.Path;
 
                         helpBox.SetActive(false);
+                        sendOnStartField.SetActive(true);
                     }
                     else
                     {
@@ -289,6 +291,7 @@ namespace FMODPlus
                     _oldPath = parameterSender.Parameter;
 
                     parameterArea.SetActive(true);
+                    sendOnStartField.SetActive(true);
                 }
             }));
 

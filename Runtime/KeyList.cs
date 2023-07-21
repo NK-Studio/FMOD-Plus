@@ -13,9 +13,9 @@ namespace FMODPlus
     public class KeyList : ScriptableObject
     {
         private const string PluginsDirectory = "Assets/Plugins";
-        private const string FMODPlusDirectory = "Assets/Plugins/FMODPlus";
-        private const string KeyListDirectory = "Assets/Plugins/FMODPlus/Resources";
-        private const string KeyListFilePath = "Assets/Plugins/FMODPlus/Resources/KeyList.asset";
+        private const string FMODPlusDirectory = "Assets/Plugins/FMOD Plus";
+        private const string KeyListDirectory = "Assets/Plugins/FMOD Plus/Resources";
+        private const string KeyListFilePath = "Assets/Plugins/FMOD Plus/Resources/KeyList.asset";
 
         public AudioPathByString Clips;
 
@@ -41,10 +41,10 @@ namespace FMODPlus
                         AssetDatabase.CreateFolder("Assets", "Plugins");
 
                     if (!AssetDatabase.IsValidFolder(FMODPlusDirectory))
-                        AssetDatabase.CreateFolder("Assets/Plugins", "FMODPlus");
+                        AssetDatabase.CreateFolder("Assets/Plugins", "FMOD Plus");
 
                     if (!AssetDatabase.IsValidFolder(KeyListDirectory))
-                        AssetDatabase.CreateFolder("Assets/Plugins/FMODPlus", "Resources");
+                        AssetDatabase.CreateFolder("Assets/Plugins/FMOD Plus", "Resources");
 
                     _instance = AssetDatabase.LoadAssetAtPath<KeyList>(KeyListFilePath);
 

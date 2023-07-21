@@ -265,7 +265,7 @@ namespace FMODPlus
         public string Path;
         public string GUID;
 
-        public KeyAndPath(string key, string path,string guid)
+        public KeyAndPath(string key, string path, string guid)
         {
             Key = key;
             Path = path;
@@ -277,7 +277,7 @@ namespace FMODPlus
             return $"{Key} : {Path} : {GUID}";
         }
     }
-    
+
     [Serializable]
     public class EventReferenceByKey
     {
@@ -292,10 +292,18 @@ namespace FMODPlus
             CreateGUID();
         }
 
+        /// <summary>
+        /// Generate a GUID.
+        /// </summary>
         public void CreateGUID()
         {
             GUID = Guid.NewGuid().ToString();
         }
+
+        /// <summary>
+        /// Outputs the value of the object to the log.
+        /// </summary>
+        public string LogInfo => $"{Key} : {Value.Path} : {GUID}";
     }
 
     [Serializable]
@@ -309,7 +317,7 @@ namespace FMODPlus
         {
             list.Remove(target);
         }
-        
+
         public void OverrideListByKey(EventReferenceByKey newValue)
         {
             for (int i = 0; i < list.Count; i++)
@@ -331,7 +339,7 @@ namespace FMODPlus
         {
             return list[index];
         }
-        
+
         public EventReferenceByKey GetEventRef(string key)
         {
             return list.Find((x) => x.Key == key);
