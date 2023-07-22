@@ -1,6 +1,3 @@
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 using System.Collections.Generic;
 using FMODUnity;
 using JetBrains.Annotations;
@@ -10,9 +7,6 @@ namespace FMODPlus
 {
     public class KeyList : ScriptableObject
     {
-        private const string KeyListDirectory = "Assets/Plugins/FMODPlus/Resources";
-        private const string KeyListFilePath = "Assets/Plugins/FMODPlus/Resources/KeyList.asset";
-
         public AudioPathByString Clips;
 
         [SerializeField] [UsedImplicitly] private List<EventReferenceByKey> cachedSearchClips;
@@ -24,32 +18,13 @@ namespace FMODPlus
             get
             {
                 if (_instance != null)
-                {
                     return _instance;
-                }
 
                 _instance = Resources.Load<KeyList>("KeyList");
-
-#if UNITY_EDITOR
-                if (_instance == null)
-                {
-                    if (!AssetDatabase.IsValidFolder(KeyListDirectory))
-                    {
-                        AssetDatabase.CreateFolder("Assets/Plugins/FMODPlus", "Resources");
-                    }
-
-                    _instance = AssetDatabase.LoadAssetAtPath<KeyList>(KeyListFilePath);
-
-                    if (_instance == null)
-                    {
-                        _instance = CreateInstance<KeyList>();
-                        AssetDatabase.CreateAsset(_instance, KeyListFilePath);
-                    }
-                }
-#endif
-
+                
                 return _instance;
             }
+            set => _instance = value;
         }
 
 #if UNITY_EDITOR
