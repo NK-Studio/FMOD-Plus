@@ -1,5 +1,5 @@
 # FMOD-Plus
-[다운로드](https://github.com/NK-Studio/FMOD-Plus/releases)
+### LTS -> [UnityPackage](https://github.com/NK-Studio/FMOD-Plus/releases) 다운로드
 
 2021.3.28 LTS : 정상 작동  
 2022.1.24 : 작동 안함  
