@@ -1,4 +1,8 @@
 # Changelog
+## [1.0.8]-Beta - 2023-07-22
+### Fixed
+- 경로 수정
+
 ## [1.0.7]-Beta - 2023-07-22
 ### Fixed
 - Git UPM 지원 중단
