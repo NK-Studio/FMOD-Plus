@@ -33,10 +33,14 @@ namespace FMODPlus
 #if UNITY_EDITOR
                 if (_instance == null)
                 {
+                    if (!AssetDatabase.IsValidFolder("Assets/Plugins"))
+                        AssetDatabase.CreateFolder("Assets", "Plugins");
+                
+                    if (!AssetDatabase.IsValidFolder("Assets/Plugins/FMODPlus"))
+                        AssetDatabase.CreateFolder("Assets/Plugins", "FMODPlus");
+          
                     if (!AssetDatabase.IsValidFolder(KeyListDirectory))
-                    {
                         AssetDatabase.CreateFolder("Assets/Plugins/FMODPlus", "Resources");
-                    }
 
                     _instance = AssetDatabase.LoadAssetAtPath<KeyList>(KeyListFilePath);
 
